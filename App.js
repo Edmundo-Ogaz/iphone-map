@@ -10,16 +10,21 @@ import React from 'react';
 import {
   StyleSheet,
   View,
+  Text,
+  Alert,
+  TouchableOpacity
 } from 'react-native';
 
 import MapView, { Marker, Callout } from 'react-native-maps';
 import CustomCalloutView from './Components/custom.text';
+import Geolocation from '@react-native-community/geolocation';
 
 export default class App extends React.Component {
   constructor(props){
     super(props);
 
     this.state = {
+      region: null,
       markers: [
         {
           title: 'Albergue',
@@ -40,17 +45,30 @@ export default class App extends React.Component {
       ]
     }
   }
+
+  componentDidMount() {
+    Geolocation.getCurrentPosition(
+      position => {
+        let region = {
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+          latitudeDelta: 0.015,
+          longitudeDelta: 0.0121,
+        };
+        this.setState({ region });
+        //Alert.alert(JSON.stringify(region));
+      },
+      error => Alert.alert(error.message),
+      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
+    );
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <MapView
           style={styles.map}
-          region={{
-            latitude: -33.6583116,
-            longitude: -70.92635709999999,
-            latitudeDelta: 0.015,
-            longitudeDelta: 0.0121,
-          }}
+          region={this.state.region}
         >
           {this.state.markers.map(marker => (
           <Marker
@@ -71,7 +89,6 @@ export default class App extends React.Component {
           </Marker>
         ))}
         </MapView>
-        
       </View>
     );
   }
