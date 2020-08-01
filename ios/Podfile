@@ -12,6 +12,8 @@ target 'AwesomeProject' do
 
   pod 'react-native-geolocation', :path => '../node_modules/@react-native-community/geolocation'
 
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
   target 'AwesomeProjectTests' do
     inherit! :complete
     # Pods for testing

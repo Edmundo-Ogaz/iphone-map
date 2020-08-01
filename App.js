@@ -10,20 +10,22 @@ import React from 'react';
 import {
   StyleSheet,
   View,
-  Text,
+  TextInput,
   Alert,
-  TouchableOpacity
+  TouchableHighlight,
 } from 'react-native';
 
-import MapView, { Marker, Callout } from 'react-native-maps';
+import MapView, {Marker, Callout} from 'react-native-maps';
 import CustomCalloutView from './Components/custom.text';
 import Geolocation from '@react-native-community/geolocation';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class App extends React.Component {
   constructor(props){
     super(props);
 
     this.state = {
+      searchString: '',
       region: null,
       markers: [
         { title: ",Albergue Plan Protege Calle" , description: ",Azapa, Arica, Arica y Parinacota, Chile" , coordinates: { latitude: -18.5267348 ,longitude: -70.166358 }},
@@ -96,13 +98,8 @@ export default class App extends React.Component {
 { title: ",Albergue" , description: ",Villavicencio, Santiago, Región Metropolitana, Chile" , coordinates: { latitude: -33.4381842 ,longitude: -70.6393365 }},
 { title: ",Albergue C-19 Vicaría Esperanza Joven" , description: ",Moneda 1846, Santiago, Región Metropolitana, Chile" , coordinates: { latitude: -33.4432013 ,longitude: -70.6625759 }},
 { title: ",Albergue" , description: ",Guardia Marina Ernesto Riquelme 562, Santiago, Región Metropolitana, Chile" , coordinates: { latitude: -33.4376667 ,longitude: -70.6612207 }},
-{ title: ",Albergue C-19 Vicaría Esperanza Joven" , description: ",Moneda 1846, Santiago, Región Metropolitana, Chile" , coordinates: { latitude: -33.4432013 ,longitude: -70.6625759 }},
-{ title: ",Albergue" , description: ",Guardia Marina Ernesto Riquelme 562, Santiago, Región Metropolitana, Chile" , coordinates: { latitude: -33.4376667 ,longitude: -70.6612207 }},
-{ title: ",Albergue" , description: ",Rogelio Ugarte 1447, Santiago, Región Metropolitana, Chile" , coordinates: { latitude: -33.4626938 ,longitude: -70.6336072 }},
 { title: ",Albergue" , description: ",San Francisco 1440, Santiago, Región Metropolitana, Chile" , coordinates: { latitude: -33.4643803 ,longitude: -70.6444604 }},
-{ title: ",Albergue" , description: ",Andes 3241, Santiago, Región Metropolitana, Chile" , coordinates: { latitude: -33.4336393 ,longitude: -70.6798026 }},
 { title: ",Albergue" , description: ",Bellavista 509, Talagante, Región Metropolitana, Chile" , coordinates: { latitude: -33.6583116 ,longitude: -70.92635709999999 }},
-{ title: ",Albergue" , description: ",Veintiuno de Mayo 1696, Talagante, Región Metropolitana, Chile" , coordinates: { latitude: -33.6723348 ,longitude: -70.9253267 }},
 { title: ",Albergue" , description: ",Veintiuno de Mayo 1696, Talagante, Región Metropolitana, Chile" , coordinates: { latitude: -33.6723348 ,longitude: -70.9253267 }},
 { title: ",Albergue de Refuerzo" , description: ",Miraflores, Talagante, Región Metropolitana, Chile" , coordinates: { latitude: -33.64972060000001 ,longitude: -70.9278858 }},
 { title: ",Albergue" , description: ",Dos Ote 45, Huertos Familiares, Tiltil, Región Metropolitana, Chile" , coordinates: { latitude: -33.133295 ,longitude: -70.8054721 }},
@@ -164,53 +161,106 @@ export default class App extends React.Component {
     Geolocation.getCurrentPosition(
       position => {
         let region = {
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-          // latitude: -33.6583116,
-          // longitude: -70.92635709999999,
+          // latitude: position.coords.latitude,
+          // longitude: position.coords.longitude,
+          latitude: -33.6583116,
+          longitude: -70.92635709999999,
           latitudeDelta: 0.015,
           longitudeDelta: 0.0121,
         };
         this.setState({ region });
-        //Alert.alert(JSON.stringify(region));
       },
       error => Alert.alert(error.message),
       { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
     );
   }
 
+  buscar = async () => {
+    console.log('buscar: ' + this.state.searchString);
+    let address = this.state.searchString;
+    address = address.replace(' ', '+');
+
+    // const MAP_GOOGLE_API = "https://maps.googleapis.com/maps/api/geocode/json";
+    // const API_KEY = "";
+    // const URL = MAP_GOOGLE_API + '?address=' + address + '&key=' + API_KEY;
+    const URL = "https://run.mocky.io/v3/183edb23-65fa-4954-8559-07a3905ed748";
+    console.log(URL);
+    try {
+      let response = await fetch(URL)
+      let json = await response.json();
+      console.log(json);
+      let region = {
+        latitude: json.results[0].geometry.location.lat,
+        longitude: json.results[0].geometry.location.lng,
+        latitudeDelta: 0.015,
+        longitudeDelta: 0.0121,
+      };
+      console.log(region);
+      this.setState({region});
+    } catch (error) {
+      Alert.alert('Dirección no encontrada');
+      console.error(error);
+    }
+  };
+
   render() {
     return (
       <View style={styles.container}>
-        <MapView
-          style={styles.map}
-          region={this.state.region}
-        >
-          {this.state.markers.map(marker => (
-          <Marker
-            key={marker.coordinates.latitude}
-            coordinate={marker.coordinates}
-            title={marker.title}
-            description={marker.description}
-          >
-            <Callout>
-                <CustomCalloutView 
-                  name={'This is some custom text'}
-                  address={marker.description}
-                  institution={'This is some custom text'}
-                  hours={'This is some custom text'}
-                  places={'This is some custom text'}
-                />
-            </Callout>
-          </Marker>
-        ))}
-        </MapView>
+        <View style={styles.containermap}>
+          <MapView style={styles.map} region={this.state.region}>
+            {this.state.markers.map((marker) => (
+              <Marker
+                key={marker.coordinates.latitude}
+                coordinate={marker.coordinates}
+                title={marker.title}
+                description={marker.description}>
+                <Callout>
+                  <CustomCalloutView 
+                    name={'This is some custom text'}
+                    address={marker.description}
+                    institution={'This is some custom text'}
+                    hours={'This is some custom text'}
+                    places={'This is some custom text'}
+                  />
+                </Callout>
+              </Marker>
+            ))}
+          </MapView>
+        </View>
+        <View>
+          <TextInput
+            style={{alignItems:'center',justifyContent:'flex-start',backgroundColor:'white'}}
+            value = {this.state.searchString}
+            onChangeText = {(searchString) => {this.setState({searchString})}}
+            placeholder = 'Search'
+            keyboardType = 'web-search'
+            onSubmitEditing = {()=>{this.buscar()}}
+            ref = 'searchBar'
+          />
+        </View>
+        <TouchableHighlight
+          style={{alignItems: 'flex-end', justifyContent: 'center'}}
+          onPress={() => {
+            this.buscar();
+          }}
+          underlayColor="transparent">
+          <View>
+            <Icon name="search" size={20} color="#4285F4" />
+          </View>
+        </TouchableHighlight>
       </View>
     );
   }
 }
 const styles = StyleSheet.create({
   container: {
+    ...StyleSheet.absoluteFillObject,
+    height: 500,
+    width: 400,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  containermap: {
     ...StyleSheet.absoluteFillObject,
     height: 400,
     width: 400,
@@ -220,4 +270,4 @@ const styles = StyleSheet.create({
   map: {
     ...StyleSheet.absoluteFillObject,
   },
- });
+});
