@@ -10,6 +10,7 @@ import React from 'react';
 import {
   StyleSheet,
   View,
+  Text,
   TextInput,
   Alert,
   TouchableHighlight,
@@ -26,6 +27,7 @@ export default class App extends React.Component {
 
     this.state = {
       searchString: '',
+      coordinate: {latitude: -33.6583116, longitude: -70.92635709999999},
       region: null,
       markers: [
         { title: ",Albergue Plan Protege Calle" , description: ",Azapa, Arica, Arica y Parinacota, Chile" , coordinates: { latitude: -18.5267348 ,longitude: -70.166358 }},
@@ -168,10 +170,16 @@ export default class App extends React.Component {
           latitudeDelta: 0.015,
           longitudeDelta: 0.0121,
         };
-        this.setState({ region });
+        this.setState({region});
+
+        let coordinate = {
+          latitude: -33.6583116,
+          longitude: -70.92635709999999,
+        };
+        this.setState({coordinate});
       },
       error => Alert.alert(error.message),
-      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
+      { enableHighAccuracy: true, timeout: 20000, maximumAge: 10000 }
     );
   }
 
@@ -195,8 +203,13 @@ export default class App extends React.Component {
         latitudeDelta: 0.015,
         longitudeDelta: 0.0121,
       };
-      console.log(region);
       this.setState({region});
+
+      let coordinate = {
+        latitude: json.results[0].geometry.location.lat,
+        longitude: json.results[0].geometry.location.lng,
+      };
+      this.setState({coordinate});
     } catch (error) {
       Alert.alert('Dirección no encontrada');
       console.error(error);
@@ -225,6 +238,13 @@ export default class App extends React.Component {
                 </Callout>
               </Marker>
             ))}
+            <Marker
+              key={1}
+              coordinate={this.state.coordinate}
+              title={'current position'}
+              description={'place searched'}
+              pinColor={'#000000'}
+            />
           </MapView>
         </View>
         <View>
