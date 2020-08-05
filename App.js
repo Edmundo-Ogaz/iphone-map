@@ -219,6 +219,27 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <View style={styles.containerSearch}>
+          <TextInput
+            style={[styles.input, {height: Platform.OS == 'android' ? 40 : 20}]}
+            value = {this.state.searchString}
+            onChangeText = {(searchString) => {this.setState({searchString})}}
+            placeholder = 'Search'
+            keyboardType = 'web-search'
+            onSubmitEditing = {()=>{this.buscar()}}
+          />
+          <TouchableHighlight
+            style={styles.button}
+            onPress={() => {
+              this.buscar();
+            }}
+            underlayColor="transparent"
+          >
+            <View>
+              <Icon name="search" size={20} color="#4285F4" />
+            </View>
+          </TouchableHighlight>
+        </View>
         <View style={styles.containermap}>
           <MapView style={styles.map} region={this.state.region}>
             {this.state.markers.map((marker) => (
@@ -247,47 +268,32 @@ export default class App extends React.Component {
             />
           </MapView>
         </View>
-        <View>
-          <TextInput
-            style={{alignItems:'center',justifyContent:'flex-start',backgroundColor:'white'}}
-            value = {this.state.searchString}
-            onChangeText = {(searchString) => {this.setState({searchString})}}
-            placeholder = 'Search'
-            keyboardType = 'web-search'
-            onSubmitEditing = {()=>{this.buscar()}}
-            ref = 'searchBar'
-          />
-        </View>
-        <TouchableHighlight
-          style={{alignItems: 'flex-end', justifyContent: 'center'}}
-          onPress={() => {
-            this.buscar();
-          }}
-          underlayColor="transparent">
-          <View>
-            <Icon name="search" size={20} color="#4285F4" />
-          </View>
-        </TouchableHighlight>
       </View>
     );
   }
 }
 const styles = StyleSheet.create({
   container: {
-    ...StyleSheet.absoluteFillObject,
-    height: 500,
-    width: 400,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
+    flex: 1,
+    paddingTop: 30,
+    flexDirection: 'column',
+
+  },
+  containerSearch: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
   containermap: {
-    ...StyleSheet.absoluteFillObject,
-    height: 400,
-    width: 400,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
+    flex: 15,
+    paddingTop: 20,
   },
+  input: {
+    width: 300,
+    backgroundColor: 'white',
+  },
+  button: {},
   map: {
-    ...StyleSheet.absoluteFillObject,
-  },
+    flex: 1,
+  }
 });
