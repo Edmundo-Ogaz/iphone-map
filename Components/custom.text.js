@@ -15,11 +15,11 @@ class CustomCalloutView extends Component {
       
       return (
         <View>
-            <Text>{name}</Text>
-            <Text>{address}</Text>
-            <Text>{institution}</Text>
-            <Text>{hours}</Text>
-            <Text>{places}</Text>
+            <Text>Nombre: {name}</Text>
+            <Text>Dirección: {address}</Text>
+            <Text>Institución: {institution}</Text>
+            <Text>Horario: {hours}</Text>
+            <Text>Cupos: {places}</Text>
         </View>
       );
     }

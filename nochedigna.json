@@ -1,0 +1,242 @@
+[
+  {
+    "name": "Centro de Día",
+    "address": "18 de septiembre 650, Arica",
+    "institution": "Municipalidad de Arica",
+    "hours": "De lunes a viernes de 9:00 a 18:00 hrs",
+    "places": "30 estadía diurna",
+    "coordinates": {"latitude": -18.4804496, "longitude": -70.3157957}
+  },
+  {
+    "name": "Hospedería",
+    "address": "Arturo Buitano 156, Arica, Arica",
+    "institution": "ONG COFEDUC",
+    "hours": "Todos los días de 18:00 a 8:00 hrs.",
+    "places": "50 alojamiento",
+    "coordinates": {"latitude": -18.4684257, "longitude": -70.3048175}
+  },
+  {
+    "name": "Residencia",
+    "address": "El Almendral 2584, Iquique, Iquique",
+    "institution": "Fundación Hogar de Cristo",
+    "hours": "24 horas / 7 días a la semana",
+    "places": "25 alojamiento",
+    "coordinates": {"latitude": -20.2346663, "longitude": -70.1421574}
+  },
+  {
+    "name": "Hospedería",
+    "address": "Los Copihues 2442, Iquique",
+    "institution": "Fundación Hogar de Cristo",
+    "hours": "Todos los días de 18:00 a 8:00 hrs.",
+    "places": "30 alojamiento",
+    "coordinates": {"latitude": -20.2327206, "longitude": -70.1400718}
+  },
+  {
+    "name": "Centro de Día",
+    "address": "José Joaquín Pérez s/n, Iquique, Iquique",
+    "institution": "Fundación para el Trabajo Universidad Arturo Prat",
+    "hours": "De lunes a viernes de 9:00 a 18:00 hrs",
+    "places": "30 estadía diurna",
+    "coordinates": {"latitude": -20.2227166, "longitude": -70.1417354}
+  },
+  {
+    "name": "Centro de Día",
+    "address": "Maullín 5423, Antofagasta",
+    "institution": "Fundación Tabor",
+    "hours": "De lunes a viernes de 9:00 a 18:00 hrs",
+    "places": "25 estadía diurna",
+    "coordinates": {"latitude": -23.6223958, "longitude": -70.3847068}
+  },
+  {
+    "name": "Hospedería",
+    "address": "Retamo 839, Valparaíso",
+    "institution": "Fundación Hogar de Cristo",
+    "hours": "Todos los días de 18:00 a 8:00 hrs.",
+    "places": "50 alojamiento",
+    "coordinates": {"latitude": -33.051745, "longitude": -71.607434}
+  },
+  {
+    "name": "Centro de Día",
+    "address": "Av. Errázuriz 2830, Valparaíso",
+    "institution": "Fundación Vida Compartida Don Bosco",
+    "hours": "De lunes a viernes de 9:00 a 18:00 hrs",
+    "places": "40 estadía diurna",
+    "coordinates": {"latitude": -33.0440247, "longitude": -71.60715139999999}
+  },
+  {
+    "name": "Residencia",
+    "address": "Rivero Cruz 291, Miraflores bajo, Viña del Mar, Viña del Mar",
+    "institution": "Moviliza",
+    "hours": "24 horas / 7 días a la semana",
+    "places": "25 alojamiento",
+    "coordinates": {"latitude": -33.0296048, "longitude": -71.5279729}
+  },
+  {
+    "name": "Residencia",
+    "address": "Calle Turquesa 10461, La Florida",
+    "institution": "ONG Cidets",
+    "hours": "24 horas / 7 días a la semana",
+    "places": "25 cupos de alojamiento",
+    "coordinates": {"latitude": -33.5550004, "longitude": -70.6084886}
+  },
+  {
+    "name": "Residencia",
+    "address": "Gustavo Ross 1706, Maipú",
+    "institution": "ONG Las Viñas ",
+    "hours": "24 horas / 7 días a la semana",
+    "places": "25 cupos de alojamiento",
+    "coordinates": {"latitude": -33.5115219, "longitude": -70.755121}
+  },
+  {
+    "name": "Centro de Referencia",
+    "address": "San Juan Valdés 9554, Pudahuel",
+    "institution": "ONG Las Viñas",
+    "hours": "24 horas / 7 días a la semana",
+    "places": "15 diurno / 30 alojamiento",
+    "coordinates": {"latitude": -33.4279619, "longitude": -70.76790799999999}
+  },
+  {
+    "name": "Residencia",
+    "address": "Claudio Arrau 0299, Providencia",
+    "institution": "Moviliza",
+    "hours": "24 horas / 7 días a la semana",
+    "places": "25 alojamiento",
+    "coordinates": {"latitude": -33.4450971, "longitude": -70.6279895}
+  },
+  {
+    "name": "Residencia",
+    "address": "Lircay 0179, Recoleta",
+    "institution": "Fundación Cristo Vive",
+    "hours": "24 horas / 7 días a la semana",
+    "places": "25 cupos de alojamiento",
+    "coordinates": {"latitude": -33.4053843, "longitude": -70.6317538}
+  },
+  {
+    "name": "Hospedería",
+    "address": "Santa Elena 115, Puente Alto",
+    "institution": "EDUCERE",
+    "hours": "Todos los días de 18:00 a 8:00 hrs.",
+    "places": "30",
+    "coordinates": {"latitude": -33.6112684, "longitude": -70.5726548}
+  },
+  {
+    "name": "Centro de Referencia",
+    "address": "Profesor Alberto Zañartu 820, Recoleta",
+    "institution": "Municipalidad de Recoleta",
+    "hours": "24 horas / 7 días a la semana",
+    "places": "40 diurno / 20 alojamiento",
+    "coordinates": {"latitude": -33.4182874, "longitude": -70.6485866}
+  },
+  {
+    "name": "Residencia",
+    "address": "Portugal 514, Santiago ",
+    "institution": "Municipalidad de Santiago ",
+    "hours": "24 horas / 7 días a la semana",
+    "places": "25 alojamiento",
+    "coordinates": {"latitude": -33.4484377, "longitude": -70.6351746}
+  },
+  {
+    "name": "Residencia",
+    "address": "Ibieta 98, Rancagua",
+    "institution": "Fundación Caritas y Acción Social de la Diócesis de Rancagua",
+    "hours": "24 horas / 7 días a la semana",
+    "places": "25 alojamiento",
+    "coordinates": {"latitude": -34.1743283, "longitude": -70.73713400000001}
+  },
+  {
+    "name": "Residencia",
+    "address": "Calle  Valdivia 727 , San Fernando",
+    "institution": "Fundación Hogar de Cristo",
+    "hours": "24 horas / 7 días a la semana",
+    "places": "15 alojamiento",
+    "coordinates": {"latitude": -39.8173788, "longitude": -73.24253329999999}
+  },
+  {
+    "name": "Centro de Día",
+    "address": "14 Oriente 4 y 5 Sur 732, Talca",
+    "institution": "Fundación Hogar de Cristo",
+    "hours": "De lunes a viernes de 9:00 a 18:00 hrs",
+    "places": "50 estadía diurna",
+    "coordinates": {"latitude": -35.4288041, "longitude": -71.644747}
+  },
+  {
+    "name": "Centro de Día",
+    "address": "Merced 116, Curicó",
+    "institution": "ONG Alta Tierra",
+    "hours": "De lunes a viernes de 9:00 a 18:00 hrs",
+    "places": "35 estadía diurna",
+    "coordinates": {"latitude": -34.9846355, "longitude": -71.2363199}
+  },
+  {
+    "name": "Hospedería",
+    "address": "Avenida O¬¥Higgins 1290, Chillán",
+    "institution": "Municipalidad de Chillán",
+    "hours": "Todos los días de 18:00 a 8:00 hrs.",
+    "places": "60 alojamiento",
+    "coordinates": {"latitude": -36.6147467, "longitude": -72.11360499999999}
+  },
+  {
+    "name": "Centro de Acogida Territorial",
+    "address": "Rengo 1360, Concepción",
+    "institution": "Corporación Sempiterno",
+    "hours": "De lunes a Domingo de 8:00 a 20:00",
+    "places": "125",
+    "coordinates": {"latitude": -36.8186959, "longitude": -73.0579605}
+  },
+  {
+    "name": "Residencia",
+    "address": "Bulnes 540, Concepción",
+    "institution": "Corporación para la Atención Integral al maltrato CATIM",
+    "hours": "24 horas / 7 días a la semana",
+    "places": "25 alojamiento",
+    "coordinates": {"latitude": -36.8211552, "longitude": -73.0557955}
+  },
+  {
+    "name": "Hospedería",
+    "address": "Manuel Rodriguez 935, Concepción",
+    "institution": "Fundación Novo Millennio",
+    "hours": "Todos los días de 18:00 a 8:00 hrs.",
+    "places": "60 alojamiento",
+    "coordinates": {"latitude": -36.8156616, "longitude": -73.0530193}
+  },
+  {
+    "name": "Residencia",
+    "address": "Andrés Bello 239, Temuco",
+    "institution": "Fundación Hogar de Cristo",
+    "hours": "24 horas / 7 días a la semana",
+    "places": "25 alojamiento",
+    "coordinates": {"latitude": -38.7402381, "longitude": -72.5986443}
+  },
+  {
+    "name": "Centro de Día",
+    "address": "Agustín Gómez García 12, Quellón",
+    "institution": "Municipalidad de Quellón",
+    "hours": "De lunes a viernes de 9:00 a 18:00 hrs",
+    "places": "20 estadía diurna",
+    "coordinates": {"latitude": -43.1175477, "longitude": -73.6212395}
+  },
+  {
+    "name": "Centro de Día",
+    "address": "Calle Balmaceda 272, Puerto Montt",
+    "institution": "Municipalidad de Puerto Montt",
+    "hours": "De lunes a viernes de 9:00 a 18:00 hrs.",
+    "places": "30 estadía diurna",
+    "coordinates": {"latitude": -41.4709189, "longitude": -72.94623229999999}
+  },
+  {
+    "name": "Centro de Referencia",
+    "address": "Pdte Errázurriz 39 , Coyhaique",
+    "institution": "Municipalidad de Coyhaique",
+    "hours": "24 horas / 7 días a la semana",
+    "places": "20 diurna / 15 alojamiento",
+    "coordinates": {"latitude": -45.5732771, "longitude": -72.07496189999999}
+  },
+  {
+    "name": "Centro de Referencia",
+    "address": "Balmaceda 621, Punta Arenas",
+    "institution": "Fundación para el Desarrollo, FIDE XII",
+    "hours": ",24 horas / 7 días a la semana",
+    "places": "30 diurnos / 10 alojamiento",
+    "coordinates": {"latitude": -53.1643622, "longitude": -70.9125182}
+  }
+]
